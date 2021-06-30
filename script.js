@@ -1,4 +1,7 @@
-"use strict";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
+const welcome = document.querySelector(".welcome");
 
 const gamePlay = document.getElementById("game-play");
 

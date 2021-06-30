@@ -1,11 +1,6 @@
 @font-face {
   font-family: "eraserregular";
-  src: url("EraserRegular-webfont.eot");
-  src: url("EraserRegular-webfont.eot?#iefix") format("embedded-opentype"),
-    url("EraserRegular-webfont.woff2") format("woff2"),
-    url("EraserRegular-webfont.woff") format("woff"),
-    url("EraserRegular-webfont.ttf") format("truetype"),
-    url("EraserRegular-webfont.svg#eraserregular") format("svg");
+  src: url("EraserRegular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -15,6 +10,7 @@
   padding: 0;
   box-sizing: inherit;
   font-family: "eraserregular", "Courier New", Courier, monospace;
+  /* "eraserregular", */
 }
 
 html {
