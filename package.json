@@ -1,0 +1,12 @@
+{
+  "name": "hangedman",
+  "version": "1.0.0",
+  "description": "Game",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Maria Paz Carvacho",
+  "license": "ISC"
+}

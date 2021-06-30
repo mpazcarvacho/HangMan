@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "eraserregular";
+  src: url("EraserRegular-webfont.eot");
+  src: url("EraserRegular-webfont.eot?#iefix") format("embedded-opentype"),
+    url("EraserRegular-webfont.woff2") format("woff2"),
+    url("EraserRegular-webfont.woff") format("woff"),
+    url("EraserRegular-webfont.ttf") format("truetype"),
+    url("EraserRegular-webfont.svg#eraserregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "eraserregular", "Courier New", Courier, monospace;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, black, #303030, #145232);
+  height: 100vh;
+  padding: 2rem;
+}
+
+h1 {
+  color: snow;
+  font-size: 40px;
+  text-align: center;
+}
+
+.welcome {
+  margin-top: 5em;
+  color: snow;
+  font-size: 40px;
+  text-align: center;
+}
+
+.buttons {
+  align-items: center;
+  margin: 5rem;
+  text-align: center;
+}
+
+.btn-new-game {
+  border: none;
+  background: linear-gradient(to bottom right, olive, green);
+  font-size: 2.2rem;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 1em;
+  color: whitesmoke;
+  display: inline;
+  margin-right: 2em;
+  width: 10em;
+}
+
+.btn-how-to {
+  border: none;
+  background: linear-gradient(to bottom right, green, olive);
+  font-size: 2.2rem;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 1em;
+  color: whitesmoke;
+  margin-left: 2em;
+  width: 10em;
+}
+
+.game {
+  transition: all 0.5s;
+  background-color: black;
+  /* display: hidden; */
+  align-items: center;
+  margin: 5rem;
+  margin-top: 0;
+  text-align: center;
+  height: 40em;
+}
+
+.game-text {
+  padding-top: 1em;
+}
+
+.top-text {
+  height: 10%;
+}
+
+.game-play {
+  height: 90%;
+  position: relative;
+}
+
+.letter-base {
+  color: white;
+  border-bottom: white;
+  width: 5em;
+  background-color: grey;
+  text-align: center;
+  border-bottom-width: 1em;
+  padding: 1em;
+  width: 10em;
+  position: absolute;
+  bottom: 3em;
+  left: 3em;
+  display: inline;
+  font-size: 1em;
+}
