@@ -1,6 +1,10 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
+import * as wordList from "word-pictionary-list";
+
+console.log(wordList());
+
 const welcome = document.querySelector(".welcome");
 
 const gamePlay = document.getElementById("game-play");
