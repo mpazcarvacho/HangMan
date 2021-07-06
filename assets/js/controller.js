@@ -3,6 +3,8 @@ import "regenerator-runtime/runtime";
 import * as randomWord from "word-pictionary-list";
 
 import * as model from "./model.js";
+import gameView from "./views/gameView.js";
+import htpView from "./views/htpView.js";
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -32,7 +34,23 @@ const controlWord = async function () {
   }
 };
 
+const controlHowToPlay = function () {
+  htpView.render();
+};
+
+const controlCloseModal = function () {
+  htpView.close();
+};
+
 controlWord();
+
+const init = function () {
+  //Adding Event listeners to how to play view (open and close modal).
+  htpView.addHandlerRender(controlHowToPlay);
+  htpView.addCloseRender(controlCloseModal);
+};
+
+init();
 
 // const randomWord = function (words) {
 //   const totalWords = words.length;
