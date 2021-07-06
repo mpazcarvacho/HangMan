@@ -1,6 +1,5 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import * as randomWord from "word-pictionary-list";
 
 import * as model from "./model.js";
 import gameView from "./views/gameView.js";
@@ -14,7 +13,7 @@ const timeout = function (s) {
   });
 };
 
-//Selectors
+//Selectors - View logic, these will be removed from controller
 const welcome = document.querySelector(".welcome");
 const gamePlay = document.getElementById("game-play");
 const tag = document.createElement("div");
@@ -30,7 +29,8 @@ const controlWord = async function () {
     const definition = await model.getWordDefinition();
     console.log(definition);
   } catch (err) {
-    alert(err);
+    //outstanding: throw error and render in view. #TODO
+    console.error(`${err}. Error in controlWord - controller.js 💥`);
   }
 };
 
@@ -44,10 +44,17 @@ const controlCloseModal = function () {
 
 controlWord();
 
+const controlGame = function () {
+  //1. Separate strings from randomWord #TODO
+  //2 Render Gameview #TODO
+  //3 Render GuessView #TODO
+};
+
 const init = function () {
   //Adding Event listeners to how to play view (open and close modal).
   htpView.addHandlerRender(controlHowToPlay);
   htpView.addCloseRender(controlCloseModal);
+  gameView.addClickRender(controlGame);
 };
 
 init();

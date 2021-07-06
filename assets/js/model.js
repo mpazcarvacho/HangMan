@@ -29,6 +29,6 @@ export const getWordDefinition = async function () {
     });
     return defStr;
   } catch (error) {
-    alert(error);
+    throw error;
   }
 };
