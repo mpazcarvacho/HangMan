@@ -18,7 +18,7 @@ class HowToPlayView {
     this.#button.addEventListener("click", handler);
   }
 
-  addCloseRender(handler) {
+  addHandlerClose(handler) {
     [this.#closeButton, this.#overlay].forEach((dom) =>
       dom.addEventListener("click", handler)
     );

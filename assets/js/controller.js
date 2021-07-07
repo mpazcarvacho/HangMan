@@ -26,8 +26,8 @@ tag.classList.add("letter-base");
 
 const controlWord = async function () {
   try {
-    const definition = await model.getWordDefinition();
-    console.log(definition);
+    await model.getWordDefinition();
+    console.log(model.state.word.word);
   } catch (err) {
     //outstanding: throw error and render in view. #TODO
     console.error(`${err}. Error in controlWord - controller.js 💥`);
@@ -46,6 +46,7 @@ controlWord();
 
 const controlGame = function () {
   //1. Separate strings from randomWord #TODO
+  gameView.render(model.getWordDefinition());
   //2 Render Gameview #TODO
   //3 Render GuessView #TODO
 };
@@ -53,8 +54,8 @@ const controlGame = function () {
 const init = function () {
   //Adding Event listeners to how to play view (open and close modal).
   htpView.addHandlerRender(controlHowToPlay);
-  htpView.addCloseRender(controlCloseModal);
-  gameView.addClickRender(controlGame);
+  htpView.addHandlerClose(controlCloseModal);
+  gameView.addHandlerRender(controlGame);
 };
 
 init();
