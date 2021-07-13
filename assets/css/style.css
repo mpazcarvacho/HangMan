@@ -98,6 +98,12 @@ h1 {
   position: relative;
 }
 
+.game-play:before {
+  vertical-align: middle;
+  display: inline-block;
+  height: 100%;
+}
+
 .letter-base {
   color: white;
   border-bottom: white;
@@ -106,12 +112,13 @@ h1 {
   text-align: center;
   border-bottom-width: 1em;
   padding: 1em;
+  margin: 2em 1em;
   width: 10em;
+  vertical-align: bottom;
   position: absolute;
-  bottom: 3em;
-  left: 3em;
-  display: inline;
   font-size: 1em;
+  bottom: 0;
+  height: 50%;
 }
 
 /* CLASSES TO MAKE MODAL WORK */

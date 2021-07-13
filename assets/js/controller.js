@@ -15,19 +15,19 @@ const timeout = function (s) {
 
 //Selectors - View logic, these will be removed from controller
 const welcome = document.querySelector(".welcome");
-const gamePlay = document.getElementById("game-play");
-const tag = document.createElement("div");
-const text = document.createTextNode("String");
-tag.appendChild(text);
-gamePlay.appendChild(tag);
-tag.classList.add("letter-base");
+// const gamePlay = document.getElementById("game-play");
+// const tag = document.createElement("div");
+// const text = document.createTextNode("String");
+// tag.appendChild(text);
+// gamePlay.appendChild(tag);
+// tag.classList.add("letter-base");
 
 //////////////////////////////////////////////////////
 
 const controlWord = async function () {
   try {
     await model.getWordDefinition();
-    console.log(model.state.word.word);
+    console.log(`${model.state.word.word}. ${model.state.word.defStr}`);
   } catch (err) {
     //outstanding: throw error and render in view. #TODO
     console.error(`${err}. Error in controlWord - controller.js 💥`);
@@ -42,11 +42,9 @@ const controlCloseModal = function () {
   htpView.close();
 };
 
-controlWord();
-
 const controlGame = function () {
   //1. Separate strings from randomWord #TODO
-  gameView.render(model.getWordDefinition());
+  gameView.render(model.state.word.word);
   //2 Render Gameview #TODO
   //3 Render GuessView #TODO
 };
@@ -56,6 +54,9 @@ const init = function () {
   htpView.addHandlerRender(controlHowToPlay);
   htpView.addHandlerClose(controlCloseModal);
   gameView.addHandlerRender(controlGame);
+
+  //Setting state with word asyncronously so it will be ready when the user clicks play
+  controlWord();
 };
 
 init();

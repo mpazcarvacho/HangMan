@@ -9,20 +9,16 @@ export const loadWord = async function () {};
 
 export const getWordDefinition = async function () {
   try {
-    //Get random word and save it into state.
+    //1. Get random word from npm package
     const randomWord = wordList().split(" ");
-    //<state.word.word = randomWord[0];
-    console.log(randomWord[0]);
 
-    //Call dictionary API to get definitions of the word.
+    //2. Call dictionary API to get definitions of the word.
     const data = await helpers.getJSON(randomWord[0]);
-    console.log(data);
-
     const { meanings } = data[0];
 
     let defStr = [];
 
-    //Each partOfSpeech can have multiple definitions. Iterate through them and save them into state.
+    //3. Each partOfSpeech can have multiple definitions. Iterate through them and save them into state.
     meanings.forEach((meaning) => {
       let { partOfSpeech, definitions } = meaning;
 
