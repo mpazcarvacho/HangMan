@@ -38,10 +38,11 @@ export const getWordDefinition = async function () {
           defStr: defStr,
         };
       });
+
+      //4. Separate strings from randomWord and storing them in state #DONE
+      state.word.letters = Array.from(state.word.word);
     });
   } catch (error) {
     throw error;
   }
 };
-
-export const setLetters = function () {};

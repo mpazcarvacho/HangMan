@@ -27,7 +27,7 @@ const welcome = document.querySelector(".welcome");
 const controlWord = async function () {
   try {
     await model.getWordDefinition();
-    console.log(`${model.state.word.word}. ${model.state.word.defStr}`);
+    // console.log(`${model.state.word.word}. ${model.state.word.defStr}`);
   } catch (err) {
     //outstanding: throw error and render in view. #TODO
     console.error(`${err}. Error in controlWord - controller.js 💥`);
@@ -43,9 +43,7 @@ const controlCloseModal = function () {
 };
 
 const controlGame = function () {
-  //1. Separate strings from randomWord and storing them in state #TODO
-
-  //2 Render Gameview #TODO
+  //1 Render Gameview #TODO
   gameView.render(model.state.word.word);
   //3 Render GuessView #TODO
 };

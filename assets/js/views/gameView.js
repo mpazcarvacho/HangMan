@@ -13,8 +13,6 @@ class GameView {
     let wordsElements = [];
     let stringSep = 0;
     for (let i = 0; i < letterCount; i++) {
-      //#TODO check for chars other than strings or whitespaces
-
       stringSep += STRING_SEPARATION;
       console.log(stringSep);
       letterElements.push(document.createElement("div"));
