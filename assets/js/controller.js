@@ -43,9 +43,10 @@ const controlCloseModal = function () {
 };
 
 const controlGame = function () {
-  //1. Separate strings from randomWord #TODO
-  gameView.render(model.state.word.word);
+  //1. Separate strings from randomWord and storing them in state #TODO
+
   //2 Render Gameview #TODO
+  gameView.render(model.state.word.word);
   //3 Render GuessView #TODO
 };
 

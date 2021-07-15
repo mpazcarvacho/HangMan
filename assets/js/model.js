@@ -39,3 +39,5 @@ export const getWordDefinition = async function () {
     throw error;
   }
 };
+
+export const getLetters = function () {};

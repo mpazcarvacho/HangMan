@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-size: calc(16px +3vw);
 
   /* "eraserregular", */
 }
@@ -106,9 +107,10 @@ h1 {
 
 .letter-base {
   color: white;
-  border-bottom: white;
+  border-bottom: #999 solid 4px;
+  /* width should also be relative to amount of letters in word */
   width: 5em;
-  background-color: grey;
+  /* background-color: grey; */
   text-align: center;
   border-bottom-width: 1em;
   padding: 1em;
@@ -117,10 +119,20 @@ h1 {
   vertical-align: bottom;
   position: absolute;
   font-size: 1em;
-  bottom: 0;
+  bottom: 10%;
   height: 50%;
+  max-width: 10px;
 }
 
+.letter {
+  /* #TODO center elements when implementing flex & grid */
+  font-size: min(max(16px, 4vw), 10vw);
+  text-align: center;
+  color: #f4f4f4;
+  position: absolute;
+  bottom: 10%;
+  margin: auto;
+}
 /* CLASSES TO MAKE MODAL WORK */
 
 .show-modal {
