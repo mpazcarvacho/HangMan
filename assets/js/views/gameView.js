@@ -8,7 +8,6 @@ class GameView {
   #data;
 
   render(word) {
-    console.log(word);
     const letterCount = word.length;
     let letterElements = [];
     let wordsElements = [];

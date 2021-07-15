@@ -9,8 +9,12 @@ export const loadWord = async function () {};
 
 export const getWordDefinition = async function () {
   try {
-    //1. Get random word from npm package
-    const randomWord = wordList().split(" ");
+    //1. Get random word from npm package, validate word: Only one word and no '-'
+    let randomWord;
+
+    do {
+      randomWord = wordList().split(" ");
+    } while (randomWord.length > 1 || RegExp("-", "g").exec(randomWord));
 
     //2. Call dictionary API to get definitions of the word.
     const data = await helpers.getJSON(randomWord[0]);
@@ -40,4 +44,4 @@ export const getWordDefinition = async function () {
   }
 };
 
-export const getLetters = function () {};
+export const setLetters = function () {};
