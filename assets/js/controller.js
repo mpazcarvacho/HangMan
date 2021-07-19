@@ -33,6 +33,10 @@ const controlCloseModal = function () {
   htpView.close();
 };
 
+const controlLetters = function (letterBaseEl, lEl) {
+  model.setLettersDOM(letterBaseEl, lEl);
+};
+
 const controlGame = function () {
   //0 Create DOM elements dynamically and set them into state. to avoid creating same node els wit Array.fill
   for (let i = 0; i < model.state.word.letters.letter.length; i++) {
@@ -45,10 +49,8 @@ const controlGame = function () {
   //1 Render Gameview #DONE
   gameView.render(model.state.word.letters);
   //2 Render GuessView #TODO
-};
 
-const controlLetters = function (letterBaseEl, lEl) {
-  model.setLettersDOM(letterBaseEl, lEl);
+  //3 Render animation of HangMan #TODO
 };
 
 const init = function () {
@@ -62,29 +64,3 @@ const init = function () {
 };
 
 init();
-
-// const randomWord = function (words) {
-//   const totalWords = words.length;
-//   console.log(totalWords);
-//   const random = Math.floor(Math.random() * totalWords);
-//   return words[random];
-// };
-
-// const word = randomWord(words);
-
-// const countLetters = function (randomWord) {
-//   const letterCount = randomWord.length;
-//   let x = 3;
-//   for (let i = 0; i < letterCount; i++) {
-//     x += 3;
-//     const tag = document.createElement("div");
-//     console.log(randomWord[i]);
-//     const text = document.createTextNode(randomWord[i]);
-//     tag.appendChild(text);
-//     gamePlay.appendChild(tag);
-//     tag.classList.add("letter-base");
-//     tag.style.left = `${x * 3}em`;
-//   }
-// };
-
-// countLetters(word);

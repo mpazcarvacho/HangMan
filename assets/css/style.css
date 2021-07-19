@@ -6,7 +6,7 @@
 }
 
 * {
-  margin: 0;
+  /* margin: 0; */
   padding: 0;
   box-sizing: inherit;
   font-size: calc(16px +3vw);
@@ -90,6 +90,8 @@ h1 {
   text-align: center;
   height: 40em;
   border-radius: 2rem;
+  position: relative;
+  max-width: 98%;
 }
 
 .game-text {
@@ -103,6 +105,9 @@ h1 {
 .game-play {
   height: 90%;
   position: relative;
+  max-width: 80%;
+  margin-right: 0;
+  /* float: left; */
 }
 
 .game-play:before {
@@ -139,6 +144,30 @@ h1 {
   bottom: 10%;
   margin: auto;
 }
+/* Classes for guessView */
+
+.guess {
+  position: absolute;
+  /* height: 50%; */
+  display: inline-block;
+  max-width: 20%;
+  /* float: right; */
+  background-color: aqua;
+}
+
+.guess::before {
+  display: inline-block;
+}
+
+.guessForm {
+  position: absolute;
+  display: inline-block;
+}
+
+.clr {
+  clear: both;
+}
+
 /* CLASSES TO MAKE MODAL WORK */
 
 .show-modal {

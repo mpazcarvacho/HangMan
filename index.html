@@ -31,12 +31,21 @@
         <div class="top-text">
           <h1 class="game-text gradient-text">Here goes the game</h1>
         </div>
-        <div class="game-play" id="game-play">
-          <!-- <span class="letter-base">h</span>
-          <span class="letter-base">e</span>
-          <span class="letter-base">l</span>
-          <span class="letter-base">l</span>
-          <span class="letter-base">o</span> -->
+        <div class="game-play clr" id="game-play"></div>
+        <div class="guess clr">
+          <form action="submit">
+            <div class="guessForm">
+              <input
+                type="text"
+                required
+                name="guessInput"
+                class="input"
+                placeholder="Text your guess here! Only one letter."
+              />
+              <button type="submit" class="buttons">Submit</button>
+              <div class="clr"></div>
+            </div>
+          </form>
         </div>
       </div>
 

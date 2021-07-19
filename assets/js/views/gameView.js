@@ -29,6 +29,8 @@ class GameView {
 
       letters.letterBaseEl[i].appendChild(letters.letterEl[i]);
     }
+
+    //Render restart button or something like that #TODO
   }
 
   addHandlerRender(handler) {
