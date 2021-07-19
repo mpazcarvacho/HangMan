@@ -7,34 +7,27 @@ class GameView {
 
   #data;
 
-  render(word) {
-    const letterCount = word.word.length;
-    console.log(letterCount);
-    let letterElements = [];
-    let wordsElements = [];
+  render(letters) {
+    const letterCount = letters.letter.length;
     let stringSep = 0;
     for (let i = 0; i < letterCount; i++) {
       stringSep += STRING_SEPARATION;
-      letterElements.push(document.createElement("div"));
 
-      // letterElements[i].innerText = word[i];
-      letterElements[i].classList.add("letter-base");
-      letterElements[i].style.left = `${10 + stringSep / letterCount}%`;
-      letterElements[i].style.maxWidth = `${
+      letters.letterBaseEl[i].classList.add("letter-base");
+      letters.letterBaseEl[i].style.left = `${10 + stringSep / letterCount}%`;
+      letters.letterBaseEl[i].style.maxWidth = `${
         (STRING_SEPARATION / letterCount) * 0.9
       }%`;
-      //letterElements[i].appendChild(document.createTextNode(word[i]));
-      //this.#parentElement.appendChild(letterElements[i]);
-      this.#gamePlay.appendChild(letterElements[i]);
 
-      //Create div in which letters will be shown
-      wordsElements.push(document.createElement("div"));
-      wordsElements[i].classList.toggle("hidden");
-      wordsElements[i].classList.add("letter");
-      wordsElements[i].innerText = word.letters[i];
+      this.#gamePlay.appendChild(letters.letterBaseEl[i]);
 
-      // wordsElements[i].style.fontSize = `${}`
-      letterElements[i].appendChild(wordsElements[i]);
+      letters.letterEl[i].classList.toggle("hidden");
+      letters.letterEl[i].classList.add("letter");
+
+      //Inner text will not be added until guessed
+      // letters.letterEl[i].innerText = letters.letter[i];
+
+      letters.letterBaseEl[i].appendChild(letters.letterEl[i]);
     }
   }
 

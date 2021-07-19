@@ -34,9 +34,21 @@ const controlCloseModal = function () {
 };
 
 const controlGame = function () {
-  //1 Render Gameview #TODO
-  gameView.render(model.state.word);
-  //3 Render GuessView #TODO
+  //0 Create DOM elements dynamically and set them into state. to avoid creating same node els wit Array.fill
+  for (let i = 0; i < model.state.word.letters.letter.length; i++) {
+    controlLetters(
+      document.createElement("div"),
+      document.createElement("div")
+    );
+  }
+
+  //1 Render Gameview #DONE
+  gameView.render(model.state.word.letters);
+  //2 Render GuessView #TODO
+};
+
+const controlLetters = function (letterBaseEl, lEl) {
+  model.setLettersDOM(letterBaseEl, lEl);
 };
 
 const init = function () {

@@ -46,25 +46,21 @@ export const getWordDefinition = async function () {
         };
       });
       // console.log(state.word.defStr);
-      //4. Separate strings from randomWord and storing them in state #DONE
 
-      //Add here div elements and store them into state. Classes  will be added in GameView Class.
-      // debugger;
+      //4. Add here div elements and store them into state. Classes  will be added in GameView Class. #DONE
 
       state.word.letters = {
         letter: Array.from(state.word.word),
-        letterBaseEl: Array(state.word.word.length).fill(
-          document.createElement("div")
-        ),
-        letterEl: Array(state.word.word.length).fill(
-          document.createElement("div")
-        ),
+        letterBaseEl: [],
+        letterEl: [],
       };
     });
-    // console.log(state.word.letters);
-
-    console.log(state);
   } catch (error) {
     throw error;
   }
+};
+
+export const setLettersDOM = function (letterBaseEl, lEl) {
+  state.word.letters.letterBaseEl.push(letterBaseEl);
+  state.word.letters.letterEl.push(lEl);
 };
