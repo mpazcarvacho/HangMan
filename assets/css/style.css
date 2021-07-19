@@ -67,6 +67,12 @@ h1 {
   border-radius: 2rem;
 }
 
+.btns:hover {
+  transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+}
+
 .btn-new-game {
   margin-right: 2em;
 }

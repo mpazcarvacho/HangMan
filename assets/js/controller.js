@@ -13,15 +13,6 @@ const timeout = function (s) {
   });
 };
 
-//Selectors - View logic, these will be removed from controller
-const welcome = document.querySelector(".welcome");
-// const gamePlay = document.getElementById("game-play");
-// const tag = document.createElement("div");
-// const text = document.createTextNode("String");
-// tag.appendChild(text);
-// gamePlay.appendChild(tag);
-// tag.classList.add("letter-base");
-
 //////////////////////////////////////////////////////
 
 const controlWord = async function () {
@@ -44,7 +35,7 @@ const controlCloseModal = function () {
 
 const controlGame = function () {
   //1 Render Gameview #TODO
-  gameView.render(model.state.word.word);
+  gameView.render(model.state.word);
   //3 Render GuessView #TODO
 };
 

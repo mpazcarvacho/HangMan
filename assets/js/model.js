@@ -2,7 +2,14 @@ import * as wordList from "word-pictionary-list";
 import * as helpers from "./helpers.js";
 
 export const state = {
-  word: {},
+  word: {
+    defStr: [],
+    letters: {
+      letter: [],
+      letterBaseEl: [],
+      letterEl: [],
+    },
+  },
 };
 
 export const loadWord = async function () {};
@@ -38,10 +45,25 @@ export const getWordDefinition = async function () {
           defStr: defStr,
         };
       });
-
+      // console.log(state.word.defStr);
       //4. Separate strings from randomWord and storing them in state #DONE
-      state.word.letters = Array.from(state.word.word);
+
+      //Add here div elements and store them into state. Classes  will be added in GameView Class.
+      // debugger;
+
+      state.word.letters = {
+        letter: Array.from(state.word.word),
+        letterBaseEl: Array(state.word.word.length).fill(
+          document.createElement("div")
+        ),
+        letterEl: Array(state.word.word.length).fill(
+          document.createElement("div")
+        ),
+      };
     });
+    // console.log(state.word.letters);
+
+    console.log(state);
   } catch (error) {
     throw error;
   }

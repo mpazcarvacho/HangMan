@@ -8,15 +8,15 @@ class GameView {
   #data;
 
   render(word) {
-    const letterCount = word.length;
+    const letterCount = word.word.length;
+    console.log(letterCount);
     let letterElements = [];
     let wordsElements = [];
     let stringSep = 0;
     for (let i = 0; i < letterCount; i++) {
       stringSep += STRING_SEPARATION;
-      console.log(stringSep);
       letterElements.push(document.createElement("div"));
-      console.log(word[i]);
+
       // letterElements[i].innerText = word[i];
       letterElements[i].classList.add("letter-base");
       letterElements[i].style.left = `${10 + stringSep / letterCount}%`;
@@ -28,10 +28,11 @@ class GameView {
       this.#gamePlay.appendChild(letterElements[i]);
 
       //Create div in which letters will be shown
-
       wordsElements.push(document.createElement("div"));
-      wordsElements[i].innerText = word[i];
+      wordsElements[i].classList.toggle("hidden");
       wordsElements[i].classList.add("letter");
+      wordsElements[i].innerText = word.letters[i];
+
       // wordsElements[i].style.fontSize = `${}`
       letterElements[i].appendChild(wordsElements[i]);
     }
