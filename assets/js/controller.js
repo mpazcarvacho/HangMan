@@ -55,11 +55,17 @@ const controlGame = function () {
   //3 Render animation of HangMan #TODO
 };
 
+const controlGuessInput = function () {
+  //Validates string on input field to be only a letter
+  guessView.inputValidation();
+};
+
 const init = function () {
   //Adding Event listeners to how to play view (open and close modal).
   htpView.addHandlerRender(controlHowToPlay);
   htpView.addHandlerClose(controlCloseModal);
   gameView.addHandlerRender(controlGame);
+  guessView.addHandlerInput(controlGuessInput);
 
   //Setting state with word asyncronously so it will be ready when the user clicks play
   controlWord();
