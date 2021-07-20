@@ -4,6 +4,7 @@ import "regenerator-runtime/runtime";
 import * as model from "./model.js";
 import gameView from "./views/gameView.js";
 import htpView from "./views/htpView.js";
+import guessView from "./views/guessView.js";
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -49,6 +50,7 @@ const controlGame = function () {
   //1 Render Gameview #DONE
   gameView.render(model.state.word.letters);
   //2 Render GuessView #TODO
+  guessView.render();
 
   //3 Render animation of HangMan #TODO
 };

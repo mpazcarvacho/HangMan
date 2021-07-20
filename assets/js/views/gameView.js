@@ -1,10 +1,8 @@
 import { STRING_SEPARATION } from "../config.js";
 
 class GameView {
-  #parentElement = document.querySelector(".game");
+  #parentElement = document.getElementById("game-play");
   #btnNew = document.querySelector(".btn-new-game");
-  #gamePlay = document.getElementById("game-play");
-
   #data;
 
   render(letters) {
@@ -19,7 +17,7 @@ class GameView {
         (STRING_SEPARATION / letterCount) * 0.9
       }%`;
 
-      this.#gamePlay.appendChild(letters.letterBaseEl[i]);
+      this.#parentElement.appendChild(letters.letterBaseEl[i]);
 
       letters.letterEl[i].classList.toggle("hidden");
       letters.letterEl[i].classList.add("letter");
@@ -29,6 +27,9 @@ class GameView {
 
       letters.letterBaseEl[i].appendChild(letters.letterEl[i]);
     }
+
+    //Add fade in animation
+    this.#parentElement.classList.add("fade-in");
 
     //Render restart button or something like that #TODO
   }
