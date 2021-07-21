@@ -358,3 +358,8 @@ li span {
     opacity: 1;
   }
 }
+
+.tooltip-inner {
+  background-color: red;
+  font-size: 16px;
+}

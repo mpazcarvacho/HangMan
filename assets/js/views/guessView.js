@@ -18,12 +18,21 @@ class GuessView {
 
     //Display tooltip only if input field value is not a letter
     if (!this.#input.value.match(regex)) {
+      console.log("imhere");
       this.#input.value = "";
-      this.#input.setAttribute("data-toggle", "tooltip");
-      this.#input.setAttribute("data-placement", "top");
-      this.#input.setAttribute("title", "tooltip");
+      this.#input.setAttribute("data-bs-toggle", "tooltip");
+      this.#input.setAttribute("data-bs-placement", "top");
+      this.#input.setAttribute("title", "Letters only!");
       this.#input.setAttribute("data-trigger", "manual");
+      this.#input.setAttribute("id", "input");
     }
+
+    var exampleEl = document.getElementById("input");
+    var tooltip = new bootstrap.Tooltip(exampleEl, {
+      boundary: document.body, // or document.querySelector('#boundary')
+    });
+
+    tooltip.show();
   }
 }
 

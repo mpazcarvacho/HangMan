@@ -60,6 +60,8 @@ const controlGuessInput = function () {
   guessView.inputValidation();
 };
 
+const jQueryTest = function () {};
+
 const init = function () {
   //Adding Event listeners to how to play view (open and close modal).
   htpView.addHandlerRender(controlHowToPlay);
