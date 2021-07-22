@@ -1,6 +1,8 @@
 class GuessView {
   #parentElement = document.querySelector(".guess");
   #input = document.querySelector(".input");
+  #btnSubmit = document.querySelector("#btn-submit");
+  #tooltip = "";
 
   render() {
     this.#parentElement.classList.toggle("hidden");
@@ -12,27 +14,32 @@ class GuessView {
     this.#input.addEventListener("input", handler);
   }
 
-  inputValidation() {
-    console.log(this.#input.value);
-    const regex = /[A-B]/gi;
+  // #TODO add handler for submit button
+  // addHandlerSubmit(handler) {}
 
-    //Display tooltip only if input field value is not a letter
-    if (!this.#input.value.match(regex)) {
-      console.log("imhere");
+  inputValidation() {
+    const regex = /[A-Z]/gi;
+
+    //if tooltip was shown, and new input is a letter, hide tooltip.
+    if (this.#input.value.match(regex)) this.#tooltip?.hide?.();
+
+    //Display tooltip only if input field value is not a letter and is not empty
+    if (!this.#input.value.match(regex) && this.#input.value !== "") {
       this.#input.value = "";
       this.#input.setAttribute("data-bs-toggle", "tooltip");
       this.#input.setAttribute("data-bs-placement", "top");
       this.#input.setAttribute("title", "Letters only!");
       this.#input.setAttribute("data-trigger", "manual");
       this.#input.setAttribute("id", "input");
+
+      if (!this.#tooltip) {
+        this.#tooltip = new bootstrap.Tooltip(this.#input, {
+          boundary: document.body, // or document.querySelector('#boundary')
+        });
+      }
+
+      this.#tooltip.show();
     }
-
-    var exampleEl = document.getElementById("input");
-    var tooltip = new bootstrap.Tooltip(exampleEl, {
-      boundary: document.body, // or document.querySelector('#boundary')
-    });
-
-    tooltip.show();
   }
 }
 
