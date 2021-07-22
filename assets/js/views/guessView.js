@@ -3,6 +3,8 @@ class GuessView {
   #input = document.querySelector(".input");
   #btnSubmit = document.querySelector("#btn-submit");
   #tooltip = "";
+  #validInput = false;
+  #form = document.querySelector(".guessForm");
 
   render() {
     this.#parentElement.classList.toggle("hidden");
@@ -11,17 +13,38 @@ class GuessView {
   }
 
   addHandlerInput(handler) {
-    this.#input.addEventListener("input", handler);
+    // this.#input.addEventListener("input", handler);
+    this.#input.addEventListener("input", function (e) {
+      e.preventDefault();
+      handler();
+    });
   }
 
   // #TODO add handler for submit button
-  // addHandlerSubmit(handler) {}
+  addHandlerSubmit(handler) {
+    ["click", "submit"].forEach((event) =>
+      this.#btnSubmit.addEventListener(event, function (e) {
+        // e.preventDefault();
+        handler();
+      })
+    );
+
+    this.#input.addEventListener("keydown", function (e) {
+      if (e.key == "Enter") {
+        e.preventDefault();
+        handler();
+      }
+    });
+  }
 
   inputValidation() {
     const regex = /[A-Z]/gi;
 
     //if tooltip was shown, and new input is a letter, hide tooltip.
-    if (this.#input.value.match(regex)) this.#tooltip?.hide?.();
+    if (this.#input.value.match(regex)) {
+      this.#tooltip?.hide?.();
+      this.#validInput = true;
+    }
 
     //Display tooltip only if input field value is not a letter and is not empty
     if (!this.#input.value.match(regex) && this.#input.value !== "") {
@@ -39,7 +62,13 @@ class GuessView {
       }
 
       this.#tooltip.show();
+
+      this.#validInput = false;
     }
+  }
+
+  validInput() {
+    return `${this.#validInput}`;
   }
 }
 

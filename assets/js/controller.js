@@ -60,12 +60,17 @@ const controlGuessInput = function () {
   guessView.inputValidation();
 };
 
+const controlSubmit = function () {
+  console.log(guessView.validInput());
+};
+
 const init = function () {
   //Adding Event listeners to how to play view (open and close modal).
   htpView.addHandlerRender(controlHowToPlay);
   htpView.addHandlerClose(controlCloseModal);
   gameView.addHandlerRender(controlGame);
   guessView.addHandlerInput(controlGuessInput);
+  guessView.addHandlerSubmit(controlSubmit);
 
   //Setting state with word asyncronously so it will be ready when the user clicks play
   controlWord();
