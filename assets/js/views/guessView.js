@@ -5,7 +5,8 @@ class GuessView {
   #tooltip = "";
   #validInput = false;
   #guess = "";
-  #form = document.querySelector(".guessForm");
+  #fails = document.querySelector(".fails");
+  #attempts = document.querySelector(".attempts-left");
 
   render() {
     this.#parentElement.classList.toggle("hidden");
@@ -70,7 +71,15 @@ class GuessView {
   }
 
   validInput() {
+    //Clear guess  if input correct #TODO
+    if (this.#validInput) this.#input.value = "";
     return [this.#validInput, this.#guess];
+  }
+
+  renderFails(fails, ATTEMPTS) {
+    // console.log(fails.length);
+    this.#fails.innerHTML = `<span>${[...fails].join(" - ")}</span>`;
+    this.#attempts.innerHTML = `${ATTEMPTS - fails.length}`;
   }
 }
 

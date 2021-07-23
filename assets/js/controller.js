@@ -5,6 +5,7 @@ import * as model from "./model.js";
 import gameView from "./views/gameView.js";
 import htpView from "./views/htpView.js";
 import guessView from "./views/guessView.js";
+import { ATTEMPTS, STRING_SEPARATION } from "./config.js";
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -48,7 +49,7 @@ const controlGame = function () {
   }
 
   //1 Render Gameview #DONE
-  gameView.render(model.state.word.letters);
+  gameView.render(model.state.word.letters, STRING_SEPARATION);
   //2 Render GuessView #TODO
   guessView.render();
 
@@ -65,17 +66,30 @@ const controlSubmit = function () {
   const [valid, guess] = guessView.validInput();
   if (!valid) return;
 
-  console.log(guess);
-  console.log(model.state.word);
-  // const regex = new RegExp(guess, "gi");
-  // const test = "hhoohglaaa";
-  // const r2 = /a/gi;
-  // console.log(test.match(r2));
-  // console.log(test.match(regex));
+  //2. If guess is included in state.word, set guess to true in state. If not, add them to guesses in model. #DONE
+  if (model.state.word.letters.letter.includes(guess)) {
+    model.addGuess(guess);
 
-  //2. Check if guess is included in state.word #DONE
-  console.log(model.state.word.letters.letter.includes(guess));
-  if (model.state.word.letters.letter.includes(guess)) model.addGuess(guess);
+    //3. Render letters match on gameplay #DONE
+    gameView.renderSuccess(model.state.word.letters);
+
+    //Check if game is won, if so, render definition and etc. #TODO
+    if (model.state.word.letters.guess.every((g) => g)) {
+      console.log(`you rock! Here's your prize 🏆: ${model.state.word.defStr}`);
+    }
+
+    //Also set win score and word and definition in localStorage.#TODO
+  } else {
+    //4. Add failed guess to state #DONE
+    model.addFailedGuess(guess);
+
+    //check if game lost. If game lost, render try again message.
+
+    //5. Render fails on guessView #DONE
+    guessView.renderFails(model.state.failedGuesses, ATTEMPTS);
+  }
+
+  //3. Render
 };
 
 const init = function () {

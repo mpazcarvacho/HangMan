@@ -1,11 +1,9 @@
-import { STRING_SEPARATION } from "../config.js";
-
 class GameView {
   #parentElement = document.getElementById("game-play");
   #btnNew = document.querySelector(".btn-new-game");
   #data;
 
-  render(letters) {
+  render(letters, STRING_SEPARATION) {
     const letterCount = letters.letter.length;
     let stringSep = 0;
     for (let i = 0; i < letterCount; i++) {
@@ -32,6 +30,16 @@ class GameView {
     this.#parentElement.classList.add("fade-in");
 
     //Render restart button or something like that #TODO
+  }
+
+  renderSuccess(letters) {
+    //Go through letters object and render matches where guess is true. #DONE
+    for (let i = 0; i < letters.letter.length; i++) {
+      if (letters.guess[i]) {
+        letters.letterEl[i].innerText = letters.letter[i];
+        letters.letterEl[i].classList.remove("hidden");
+      }
+    }
   }
 
   addHandlerRender(handler) {
