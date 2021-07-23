@@ -41,7 +41,7 @@ export const getWordDefinition = async function () {
           }. Definition: ${definition}`
         );
         state.word = {
-          word: randomWord[0],
+          word: randomWord[0].toLowerCase(),
           defStr: defStr,
         };
       });
@@ -53,6 +53,7 @@ export const getWordDefinition = async function () {
         letter: Array.from(state.word.word),
         letterBaseEl: [],
         letterEl: [],
+        guess: [],
       };
     });
   } catch (error) {
@@ -63,4 +64,13 @@ export const getWordDefinition = async function () {
 export const setLettersDOM = function (letterBaseEl, lEl) {
   state.word.letters.letterBaseEl.push(letterBaseEl);
   state.word.letters.letterEl.push(lEl);
+};
+
+export const addGuess = function (guess) {
+  //1. Add true in index position of guessed value #TODO
+  for (let i = 0; i < state.word.letters.letter.length; i++) {
+    if (state.word.letters.letter[i] == guess)
+      console.log(`${i}: ${state.word.letters.letter[i]} vs ${guess}`);
+  }
+  // state.word.letters.guess.push(guess);
 };

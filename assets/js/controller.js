@@ -61,7 +61,21 @@ const controlGuessInput = function () {
 };
 
 const controlSubmit = function () {
-  console.log(guessView.validInput());
+  // 1. Check if the value in input field is valid #DONE
+  const [valid, guess] = guessView.validInput();
+  if (!valid) return;
+
+  console.log(guess);
+  console.log(model.state.word);
+  // const regex = new RegExp(guess, "gi");
+  // const test = "hhoohglaaa";
+  // const r2 = /a/gi;
+  // console.log(test.match(r2));
+  // console.log(test.match(regex));
+
+  //2. Check if guess is included in state.word #DONE
+  console.log(model.state.word.letters.letter.includes(guess));
+  if (model.state.word.letters.letter.includes(guess)) model.addGuess(guess);
 };
 
 const init = function () {

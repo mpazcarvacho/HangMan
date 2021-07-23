@@ -4,6 +4,7 @@ class GuessView {
   #btnSubmit = document.querySelector("#btn-submit");
   #tooltip = "";
   #validInput = false;
+  #guess = "";
   #form = document.querySelector(".guessForm");
 
   render() {
@@ -42,6 +43,7 @@ class GuessView {
 
     //if tooltip was shown, and new input is a letter, hide tooltip.
     if (this.#input.value.match(regex)) {
+      this.#guess = this.#input.value.toLowerCase();
       this.#tooltip?.hide?.();
       this.#validInput = true;
     }
@@ -68,7 +70,7 @@ class GuessView {
   }
 
   validInput() {
-    return `${this.#validInput}`;
+    return [this.#validInput, this.#guess];
   }
 }
 
