@@ -73,7 +73,7 @@ const controlSubmit = function () {
     //3. Render letters match on gameplay #DONE
     gameView.renderSuccess(model.state.word.letters);
 
-    //Check if game is won, if so, render definition and etc. #TODO
+    //Check if game is won, if so, render definition and etc. #TODO #HERE
     if (model.state.word.letters.guess.every((g) => g)) {
       console.log(`you rock! Here's your prize 🏆: ${model.state.word.defStr}`);
     }
@@ -83,7 +83,7 @@ const controlSubmit = function () {
     //4. Add failed guess to state #DONE
     model.addFailedGuess(guess);
 
-    //check if game lost. If game lost, render try again message.
+    //check if game lost. If game lost, render try again message #TODO.
 
     //5. Render fails on guessView #DONE
     guessView.renderFails(model.state.failedGuesses, ATTEMPTS);

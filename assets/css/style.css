@@ -227,11 +227,11 @@ h1 {
   border: none;
   background: none;
 }
-.hidden {
+.hidden2 {
   display: none;
 }
 
-.modal {
+.my-modal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -362,4 +362,8 @@ li span {
 .tooltip-inner {
   background-color: red;
   font-size: 16px;
+}
+
+.hidden {
+  display: none;
 }

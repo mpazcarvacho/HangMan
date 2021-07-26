@@ -1,17 +1,18 @@
 class HowToPlayView {
-  #parentElement = document.querySelector(".modal");
+  #parentElement = document.querySelector(".my-modal");
   #button = document.querySelector(".btn-how-to");
   #closeButton = document.querySelector(".close-modal");
   #overlay = document.querySelector(".overlay");
 
   render() {
-    this.#parentElement.classList.remove("hidden");
-    this.#overlay.classList.remove("hidden");
+    console.log(this.#parentElement);
+    this.#overlay.classList.remove("hidden2");
+    this.#parentElement.classList.remove("hidden2");
   }
 
   close() {
-    this.#parentElement.classList.add("hidden");
-    this.#overlay.classList.add("hidden");
+    this.#parentElement.classList.add("hidden2");
+    this.#overlay.classList.add("hidden2");
   }
 
   addHandlerRender(handler) {
