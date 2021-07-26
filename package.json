@@ -15,6 +15,7 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "core-js": "^3.15.2",
+    "party-js": "^2.0.1",
     "regenerator-runtime": "^0.13.7",
     "word-pictionary-list": "^1.0.4"
   }

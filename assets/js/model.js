@@ -4,6 +4,13 @@ import * as helpers from "./helpers.js";
 export const state = {
   word: {
     defStr: [],
+    definitions: {
+      partOfSpeech: [],
+      definition: [],
+      antonyms: [],
+      synonyms: [],
+      example: [],
+    },
     letters: {
       letter: [],
       letterBaseEl: [],
@@ -31,16 +38,42 @@ export const getWordDefinition = async function () {
     let defStr = [];
 
     //3. Each partOfSpeech can have multiple definitions. Iterate through them and save them into state.
+    // console.log("meanings");
+    // console.log(meanings);
     meanings.forEach((meaning) => {
       let { partOfSpeech, definitions } = meaning;
+      // console.log("definitions");
+      // console.log(definitions);
 
       definitions.forEach((def) => {
         const { definition } = def;
+        // console.log("def");
+        // console.log(def);
+
+        // console.log("definition");
+        // console.log(definition);
+
+        /////
+
+        state.word.definitions["partOfSpeech"].push(
+          partOfSpeech.slice(0, 1).toUpperCase() + partOfSpeech.slice(1)
+        );
+        state.word.definitions["definition"].push(definition);
+        state.word.definitions["antonyms"].push(def.antonyms);
+        state.word.definitions["synonyms"].push(def.synonyms);
+        state.word.definitions["example"].push(def.example);
+
+        console.log(state.word.definitions.partOfSpeech);
+        console.log(state.word.definitions);
+        /////
+
         defStr.push(
           `${
             partOfSpeech.slice(0, 1).toUpperCase() + partOfSpeech.slice(1)
           }. Definition: ${definition}`
         );
+
+        console.log(defStr);
         state.word = {
           word: randomWord[0].toLowerCase(),
           defStr: defStr,
@@ -58,7 +91,8 @@ export const getWordDefinition = async function () {
       };
     });
   } catch (error) {
-    throw error;
+    console.error(error);
+    // throw error;
   }
 };
 

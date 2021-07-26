@@ -227,7 +227,7 @@ h1 {
   border: none;
   background: none;
 }
-.hidden2 {
+.hidden {
   display: none;
 }
 
@@ -362,8 +362,4 @@ li span {
 .tooltip-inner {
   background-color: red;
   font-size: 16px;
-}
-
-.hidden {
-  display: none;
 }

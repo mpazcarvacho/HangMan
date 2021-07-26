@@ -17,7 +17,7 @@ class GameView {
 
       this.#parentElement.appendChild(letters.letterBaseEl[i]);
 
-      letters.letterEl[i].classList.toggle("hidden");
+      letters.letterEl[i].classList.remove("hidden");
       letters.letterEl[i].classList.add("letter");
 
       //Inner text will not be added until guessed

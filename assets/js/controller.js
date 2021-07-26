@@ -6,6 +6,7 @@ import gameView from "./views/gameView.js";
 import htpView from "./views/htpView.js";
 import guessView from "./views/guessView.js";
 import { ATTEMPTS, STRING_SEPARATION } from "./config.js";
+import party from "party-js";
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -75,7 +76,10 @@ const controlSubmit = function () {
 
     //Check if game is won, if so, render definition and etc. #TODO #HERE
     if (model.state.word.letters.guess.every((g) => g)) {
-      console.log(`you rock! Here's your prize 🏆: ${model.state.word.defStr}`);
+      htpView.render("win", model.state.word.defStr);
+
+      console.log(`you rock! Here's your prize 🏆: ${model.state.word}
+      `);
     }
 
     //Also set win score and word and definition in localStorage.#TODO

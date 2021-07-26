@@ -9,7 +9,7 @@ class GuessView {
   #attempts = document.querySelector(".attempts-left");
 
   render() {
-    this.#parentElement.classList.toggle("hidden");
+    this.#parentElement.classList.remove("hidden");
     this.#parentElement.classList.add("fade-in");
     this.#input.focus();
   }
