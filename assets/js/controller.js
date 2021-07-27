@@ -76,7 +76,7 @@ const controlSubmit = function () {
 
     //Check if game is won, if so, render definition and etc. #TODO #HERE
     if (model.state.word.letters.guess.every((g) => g)) {
-      htpView.render("win", model.state.word.defStr);
+      htpView.render("win", model.state.word);
 
       console.log(`you rock! Here's your prize 🏆: ${model.state.word}
       `);
