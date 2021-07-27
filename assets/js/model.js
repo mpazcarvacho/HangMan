@@ -3,14 +3,7 @@ import * as helpers from "./helpers.js";
 
 export const state = {
   word: {
-    defStr: [],
-    definitions: {
-      partOfSpeech: [],
-      definition: [],
-      antonyms: [],
-      synonyms: [],
-      example: [],
-    },
+    definitions: [],
     letters: {
       letter: [],
       letterBaseEl: [],
@@ -38,48 +31,55 @@ export const getWordDefinition = async function () {
     let defStr = [];
 
     //3. Each partOfSpeech can have multiple definitions. Iterate through them and save them into state.
-    // console.log("meanings");
     // console.log(meanings);
+    for (let i = 0; i < meanings.length; i++) {
+      let { partOfSpeech, definitions } = meanings[i];
+
+      for (let j = 0; j < definitions.length; j++) {
+        const { definition } = definitions[j];
+
+        state.word.definitions.push({
+          partOfSpeech: partOfSpeech,
+          antonyms: definitions[j].antonyms,
+          definition: definition,
+          synonyms: definitions[j].synonyms,
+          example: definitions[j].example,
+        });
+      }
+    }
+
+    state.word.word = randomWord[0].toLowerCase();
+
+    state.word.letters = {
+      letter: Array.from(state.word.word),
+      letterBaseEl: [],
+      letterEl: [],
+      guess: new Array(state.word.word.length).fill(false),
+    };
+
+    console.log(state.word);
+    // console.log(state.word.definitions);
+
+    return;
     meanings.forEach((meaning) => {
       let { partOfSpeech, definitions } = meaning;
-      // console.log("definitions");
-      // console.log(definitions);
 
       definitions.forEach((def) => {
         const { definition } = def;
-        // console.log("def");
-        // console.log(def);
-
-        // console.log("definition");
-        // console.log(definition);
-
-        /////
-
-        state.word.definitions["partOfSpeech"].push(
-          partOfSpeech.slice(0, 1).toUpperCase() + partOfSpeech.slice(1)
-        );
-        state.word.definitions["definition"].push(definition);
-        state.word.definitions["antonyms"].push(def.antonyms);
-        state.word.definitions["synonyms"].push(def.synonyms);
-        state.word.definitions["example"].push(def.example);
-
-        console.log(state.word.definitions.partOfSpeech);
         console.log(state.word.definitions);
         /////
 
-        defStr.push(
-          `${
-            partOfSpeech.slice(0, 1).toUpperCase() + partOfSpeech.slice(1)
-          }. Definition: ${definition}`
-        );
+        // defStr.push(
+        //   `${
+        //     partOfSpeech.slice(0, 1).toUpperCase() + partOfSpeech.slice(1)
+        //   }. Definition: ${definition}`
+        // );
 
-        console.log(defStr);
         state.word = {
           word: randomWord[0].toLowerCase(),
           defStr: defStr,
         };
       });
-      // console.log(state.word.defStr);
 
       //4. Add here div elements and store them into state. Classes  will be added in GameView Class. #DONE
 
